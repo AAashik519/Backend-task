@@ -265,7 +265,7 @@ app.post("/api/logout", (req, res) => {
   res.json({ message: "Logged out successfully" })
 })
 
-app.get('/hello', (req, res) => {
+app.get('/', (req, res) => {
   res.send('Hello Server');
 });
 
