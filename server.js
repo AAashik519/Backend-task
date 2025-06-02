@@ -14,7 +14,7 @@ app.use(cookieParser());
 // CORS configuration for subdomain support
 const allowedOrigins = [
   "http://localhost:5173",
-  "https://frontend-task-nu-one.vercel.app/", // ✅ Add your real frontend domain
+  "https://frontend-task-peach-phi.vercel.app/", // ✅ Add your real frontend domain
 ]
 
 app.use(
@@ -29,6 +29,12 @@ app.use(
     credentials: true,
   }),
 )
+
+app.use(cors({
+  origin: 'https://frontend-task-peach-phi.vercel.app',
+  methods: ['GET', 'POST', 'PUT', 'DELETE', 'OPTIONS'],
+  credentials: true,
+}));
 
 // MongoDB connection
 mongoose
