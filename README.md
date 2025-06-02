@@ -39,3 +39,8 @@ Create a new user account with a unique username and at least 3 unique shop name
 
 🔒 POST /logout Logs the user out by clearing the JWT cookie.
 
+
+
+
+## For Run project
+npm run dev
