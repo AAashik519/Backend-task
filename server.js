@@ -12,29 +12,25 @@ app.use(express.json());
 app.use(cookieParser());
 
 // CORS configuration for subdomain support
-const allowedOrigins = [
+ const allowedOrigins = [
   "http://localhost:5173",
-  "https://frontend-task-peach-phi.vercel.app/", // ✅ Add your real frontend domain
-]
+  "https://frontend-task-peach-phi.vercel.app"
+];
 
 app.use(
   cors({
     origin: (origin, callback) => {
       if (!origin || allowedOrigins.includes(origin)) {
-        callback(null, true)
+        callback(null, true);
       } else {
-        callback(new Error("Not allowed by CORS"))
+        callback(new Error("Not allowed by CORS"));
       }
     },
+    methods: ['GET', 'POST', 'PUT', 'DELETE', 'OPTIONS'],
     credentials: true,
-  }),
-)
+  })
+);
 
-app.use(cors({
-  origin: 'https://frontend-task-peach-phi.vercel.app',
-  methods: ['GET', 'POST', 'PUT', 'DELETE', 'OPTIONS'],
-  credentials: true,
-}));
 
 // MongoDB connection
 mongoose
